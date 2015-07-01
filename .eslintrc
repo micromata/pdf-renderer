@@ -1,0 +1,45 @@
+{
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "ecmaFeatures": {
+    "blockBindings": true,
+    "classes": true,
+    "import": true,
+    "modules": true,
+    "forOf": true,
+    "arrowFunctions": true,
+    "templateStrings": true,
+    "objectLiteralShorthandProperties": true,
+    "objectLiteralShorthandMethods": true,
+    "defaultParams": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "indent": 0,
+    "quotes": [0, "single"],
+    "curly": 0,
+    "brace-style": 0,
+    "comma-style": [2, "last"],
+    "default-case": 2,
+    "new-cap": 1,
+    "eqeqeq": 0,
+    "default-case": 0,
+    "func-style": 0,
+    "no-unused-vars": 0,
+    "no-loop-func": 0,
+    "key-spacing": 0,
+    "no-path-concat": 1,
+    "consistent-return": 0,
+    "no-underscore-dangle": 0,
+    "no-unused-expressions": 0,
+    "no-shadow": 1,
+    "no-alert": 1,
+    "no-labels": 0,
+    "max-depth": [1, 5],
+    "max-len": [1, 140, 4],
+    "max-params": [1, 4],
+    "complexity": [1, 8]
+  }
+}
