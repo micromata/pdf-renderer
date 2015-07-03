@@ -2,32 +2,18 @@
  * @author  Kai Dorschner <me@krnl.de>
  */
 "use strict";
+
 import fs from 'fs';
-import express from 'express';
-import bodyParser from 'body-parser';
-import Handlebars from 'handlebars';
+import handlebars from 'handlebars';
 import wkhtmltopdf from 'wkhtmltopdf';
 
-const app = express();
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-
-app.use(express.static('static'));
-
-app.post('/makepdf', (req, res) => {
-  fs.readFile('pdf-template.html', (err, contentBuffer) => {
-    if (err) {
-      console.error(err);
-      return res.end(err);
-    }
-    const template = Handlebars.compile(contentBuffer.toString('utf8'));
-    console.log('Writing PDF with', req.body);
-    // TODO Sending an Content-Type: application/pdf might be important
-    wkhtmltopdf(template(req.body)).pipe(res);
+export default function render(templateFile, context = {}) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(templateFile, (err, contentBuffer) => {
+      if (err) return reject(res.end(err));
+      const template = handlebars.compile(contentBuffer.toString('utf8'));
+      console.log('Writing PDF with', context);
+      resolve(wkhtmltopdf(template(context)));
+    });
   });
-});
-
-app.listen(3000, () => {
-  console.log('Listening on 3000');
-});
+}
