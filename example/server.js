@@ -14,12 +14,13 @@ server.use(bodyParser.urlencoded({extended: true}));
 
 server.use(express.static('static'));
 
-server.post('/makepdf', (req, res) => {
-  renderPdf('pdf-template.html', req.body).then(stream => {
-    // TODO Sending an Content-Type: application/pdf might be important for some browsers
-    res.type('application/pdf');
-    stream.pipe(res);
-  });
+server.post('/makepdf', (request, response) => {
+  renderPdf('pdf-template.html', request.body)
+    .then(stream => {
+      response.type('application/pdf');
+      stream.pipe(response);
+    })
+    .catch(error => response.status(500).end({error}));
 });
 
 server.listen(3000, () => {
