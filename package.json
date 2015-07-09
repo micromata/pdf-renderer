@@ -2,7 +2,7 @@
   "name": "pdf-renderer",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "index.es5.js",
   "scripts": {
     "preinstall": "npm i -g babel",
     "postinstall": "npm dedupe",
