@@ -27,7 +27,7 @@ function render(templateFile) {
 
   return new Promise(function (resolve, reject) {
     _fs2['default'].readFile(templateFile, function (err, contentBuffer) {
-      if (err) return reject(res.end(err));
+      if (err) return reject(err);
       var template = _handlebars2['default'].compile(contentBuffer.toString('utf8'));
       console.log('Writing PDF with', templateContext);
       resolve((0, _wkhtmltopdf2['default'])(template(templateContext)));
