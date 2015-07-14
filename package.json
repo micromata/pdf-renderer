@@ -1,12 +1,11 @@
 {
   "name": "pdf-renderer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "index.es5.js",
   "scripts": {
-    "preinstall": "npm i -g babel",
     "postinstall": "npm dedupe",
-    "start": "babel-node --harmony_arrow_functions --harmony_classes --harmony_object_literals --harmony_rest_parameters --harmony_scoping --harmony_templates example/server.js"
+    "start": "node example/server.es5.js"
   },
   "author": "Kai Dorschner",
   "license": "MIT",
@@ -15,8 +14,5 @@
     "express": "^4.13.0",
     "handlebars": "^3.0.3",
     "wkhtmltopdf": "^0.1.5"
-  },
-  "devDependencies": {
-    "babel": "latest"
   }
 }

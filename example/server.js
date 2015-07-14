@@ -23,6 +23,15 @@ server.post('/makepdf', (request, response) => {
     .catch(error => response.status(500).end({error}));
 });
 
+server.get('/delay', function (request, response) {
+  setTimeout(function () {
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Headers", "X-Requested-With");
+    response.header('Access-Control-Allow-Headers', 'Content-Type');
+    response.end('Done');
+  }, 2000);
+});
+
 server.listen(3000, () => {
   console.log('Listening on 3000');
 });
