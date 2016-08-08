@@ -4,7 +4,7 @@ First of all please install the standalone CLI of [wkhtmltopdf](http://wkhtmltop
 After these steps you are ready to go.
 
 # Starting the demo server
-`npm start` handles the on-the-fly transpilation of the example/server.js (which es written in ES6).
+`npm start` handles the on-the-fly transpilation of the example/server.js (which is written in ES6).
 
 # On-the-fly transpilation
 The `npm start` handles the transpilation of the ES6 code transparently. If you want to skip the on-the-fly step you'll need to transpile the necessary files once and persist it via piping (e.g. `babel index.js > index.transpiled.js`).
